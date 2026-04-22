@@ -37,6 +37,12 @@ void turnRight() {
   digitalWrite(rightMotor2, HIGH);
 }
 
+void turnRight90() {
+    turnRight(); 
+    delay(1300); // we will need to figure out whether this is actually enough for 90'
+    stopMotors();
+}
+
 void turnLeft() {
   // left motor moves back
   digitalWrite(leftMotor1, LOW);
@@ -44,6 +50,10 @@ void turnLeft() {
   // right motor move forward
   digitalWrite(rightMotor1, HIGH);
   digitalWrite(rightMotor2, LOW);
+}
+
+void turnLeft90() {
+
 }
 
 // the rectangle bit
@@ -56,10 +66,8 @@ void loop() {
     stopMotors();
     delay(500); // I think the stops would be good just in case we overshoot the turns
 
-    turnRight(); 
-    delay(1000); // we will need to figure out whether this is actually enough for 90'
+    turnRight90(); 
 
-    stopMotors();
     delay(500);
   }
   stopMotors(); 
